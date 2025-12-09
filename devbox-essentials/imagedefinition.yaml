@@ -1,0 +1,26 @@
+$schema: "1.0"
+name: "DevBox Essentials (modular)"
+description: "WSL2, Docker Desktop, Git, VS Code, Python, UV, Slack — latest versions"
+image: microsoftwindows_11_22h2_gen2
+
+tasks:
+  - name: powershell
+    displayName: "Enable WSL2 + VM Platform"
+    parameters:
+      script: ./scripts/setup-wsl-vm.ps1
+
+  - name: powershell
+    displayName: "Install Docker Desktop"
+    parameters:
+      script: ./scripts/install-docker.ps1
+
+userTasks:
+  - name: winget
+    displayName: "Install Git, VS Code, Python, Slack"
+    parameters:
+      configurationFile: ./winget-configs/apps-list.dsc.yaml
+
+  - name: powershell
+    displayName: "Install UV"
+    parameters:
+      script: ./scripts/install-uv.ps1
