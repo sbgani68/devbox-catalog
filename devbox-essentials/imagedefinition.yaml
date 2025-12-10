@@ -1,5 +1,5 @@
 $schema: "1.0"
-name: "DevBox Essentials (modular)"
+name: "devbox-essentials-modular"
 description: "WSL2, Docker Desktop, Git, VS Code, Python, UV, Slack — latest versions"
 image: microsoftwindows_11_22h2_gen2
 
