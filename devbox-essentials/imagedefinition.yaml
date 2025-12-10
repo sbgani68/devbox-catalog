@@ -1,7 +1,8 @@
+
 $schema: "1.0"
 name: "devbox-essentials-modular"
 description: "WSL2, Docker Desktop, Git, VS Code, Python, UV, Slack — latest versions"
-image: microsoftwindows_11_22h2_gen2
+image: MicrosoftWindowsDesktop_windows-ent-cpc_win11-23h2-ent-cpc-m365
 
 tasks:
   - name: powershell
