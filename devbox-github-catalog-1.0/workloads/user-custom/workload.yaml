@@ -1,0 +1,17 @@
+$schema: "1.0"
+name: "user-custom"
+description: "User-level customization pack"
+
+tasks:
+  - name: InstallGit
+    description: "Install Git for user"
+    type: "__INTRINSIC_winget__"
+    parameters:
+      package: "Git.Git"
+
+  - name: UserWelcome
+    description: "User welcome script"
+    type: "__INTRINSIC_powershell__"
+    parameters:
+      inlineScript: |
+        Write-Host "User workload applied successfully."
