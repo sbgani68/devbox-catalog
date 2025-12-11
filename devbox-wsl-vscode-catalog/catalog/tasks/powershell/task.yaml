@@ -1,0 +1,19 @@
+
+name: powershell
+description: Run a PowerShell script during Dev Box provisioning (SYSTEM context).
+inputs:
+  scriptPath:
+    type: string
+    description: Relative path to a .ps1 script in the catalog repository.
+    required: true
+  timeout:
+    type: string
+    description: Optional maximum runtime (e.g., 60m).
+    required: false
+run:
+  engine: powershell
+  script: |
+    Param([string]$scriptPath)
+    Write-Host "Executing $scriptPath"
+    & $scriptPath
+    exit $LASTEXITCODE
