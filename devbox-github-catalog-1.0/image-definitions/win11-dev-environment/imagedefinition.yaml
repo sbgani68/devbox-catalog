@@ -4,7 +4,7 @@ description: "Windows 11 Dev Box with WSL, Docker, VS Code, Python, Slack"
 image: "microsoftwindowsdesktop_windows-ent-cpc_win11-25h2-ent-cpc-m365"
 
 tasks:
-  - name: EnableWSL
+  - name: "EnableWSL"
     description: "Enable WSL 2"
     type: "__INTRINSIC_powershell__"
     parameters:
@@ -12,15 +12,15 @@ tasks:
     runAsUser: false
     timeoutMinutes: 30
 
-  - name: PostInstallConfig
-    description: "Post-install configuration"
+  - name: "PostInstallConfig"
+    description: "Run post-install configuration"
     type: "__INTRINSIC_powershell__"
     parameters:
       scriptPath: "./scripts/post-install.ps1"
     runAsUser: false
     timeoutMinutes: 30
 
-  - name: InstallSoftware
+  - name: "InstallSoftware"
     description: "Install software via WinGet"
     type: "__INTRINSIC_winget__"
     parameters:
