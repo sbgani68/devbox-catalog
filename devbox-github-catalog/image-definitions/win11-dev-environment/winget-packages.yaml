@@ -1,0 +1,11 @@
+
+properties:
+  packages:
+    - id: Docker.DockerDesktop
+      source: winget
+    - id: Microsoft.VisualStudioCode
+      source: winget
+    - id: Python.Python.3
+      source: winget
+    - id: SlackTechnologies.Slack
+      source: winget

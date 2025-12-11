@@ -1,0 +1,27 @@
+
+$schema: "1.0"
+name: "win11-dev-environment"
+description: "Windows 11 Dev Box with WSL, Docker, VS Code, Python, Slack"
+image: "microsoftwindowsdesktop_windows-ent-cpc_win11-25h2-ent-cpc-m365"
+
+tasks:
+  - name: powershell
+    displayName: "Enable WSL"
+    parameters:
+      scriptPath: "scripts/enable-wsl.ps1"
+
+  - name: winget
+    displayName: "Install required software"
+    parameters:
+      configurationFile: "winget-packages.yaml"
+
+  - name: powershell
+    displayName: "Post Install Configurations"
+    parameters:
+      scriptPath: "scripts/post-install.ps1"
+
+userTasks:
+  - name: winget
+    displayName: "Reinstall VS Code for user context"
+    parameters:
+      package: "Microsoft.VisualStudioCode"
