@@ -1,0 +1,53 @@
+$schema: "1.0"
+name: "Win11-24H2-Ent-M365-WSL2-Ubuntu"
+image: "microsoftwindowsdesktop_windows-ent-cpc_win11-24h2-ent-cpc-m365"
+
+# ------------------------------------------------------------
+# Team Customizations (run during image creation)
+# ------------------------------------------------------------
+tasks:
+  # ---- Developer tools via winget ----
+  - name: ~/winget
+    parameters:
+      package: Git.Git
+
+  - name: ~/winget
+    parameters:
+      package: Microsoft.VisualStudioCode
+
+  - name: ~/winget
+    parameters:
+      package: Docker.DockerDesktop
+
+  - name: ~/winget
+    parameters:
+      package: Microsoft.WindowsTerminal
+
+  - name: ~/winget
+    parameters:
+      package: SlackTechnologies.Slack
+
+  # ---- Team PowerShell tasks (from scripts folder) ----
+  - name: ~/powershell
+    parameters:
+      scriptPath: scripts/Enable_WSL.ps1
+
+  - name: ~/powershell
+    parameters:
+      scriptPath: scripts/Install_Ubuntu2204.ps1
+
+  - name: ~/powershell
+    parameters:
+      scriptPath: scripts/UAC_Policy_Default.ps1
+
+  - name: ~/powershell
+    parameters:
+      scriptPath: scripts/Remove_MSStore_CurrentUser.ps1
+
+# ------------------------------------------------------------
+# User Customizations (run at first user login)
+# ------------------------------------------------------------
+userTasks:
+  - name: ~/powershell
+    parameters:
+      scriptPath: scripts/User_Validation.ps1
