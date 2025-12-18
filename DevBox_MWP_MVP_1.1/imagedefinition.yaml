@@ -2,11 +2,8 @@ $schema: "1.0"
 name: "Win11-24H2-Ent-M365-WSL2-Ubuntu"
 image: "microsoftwindowsdesktop_windows-ent-cpc_win11-24h2-ent-cpc-m365"
 
-# ------------------------------------------------------------
-# Team Customizations (run during image creation)
-# ------------------------------------------------------------
 tasks:
-  # ---- Developer tools via winget ----
+  # ---- Tools ----
   - name: ~/winget
     parameters:
       package: Git.Git
@@ -27,27 +24,29 @@ tasks:
     parameters:
       package: SlackTechnologies.Slack
 
-  # ---- Team PowerShell tasks (from scripts folder) ----
+  # ---- Team PowerShell scripts ----
   - name: ~/powershell
     parameters:
-      scriptPath: scripts/Enable_WSL.ps1
+      command: |
+        powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\Enable_WSL.ps1
 
   - name: ~/powershell
     parameters:
-      scriptPath: scripts/Install_Ubuntu2204.ps1
+      command: |
+        powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\Install_Ubuntu2204.ps1
 
   - name: ~/powershell
     parameters:
-      scriptPath: scripts/UAC_Policy_Default.ps1
+      command: |
+        powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\UAC_Policy_Default.ps1
 
   - name: ~/powershell
     parameters:
-      scriptPath: scripts/Remove_MSStore_CurrentUser.ps1
+      command: |
+        powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\Remove_MSStore_CurrentUser.ps1
 
-# ------------------------------------------------------------
-# User Customizations (run at first user login)
-# ------------------------------------------------------------
 userTasks:
   - name: ~/powershell
     parameters:
-      scriptPath: scripts/User_Validation.ps1
+      command: |
+        powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\User_Validation.ps1
