@@ -50,7 +50,7 @@ tasks:
     parameters:
       script: |
         Restart-Computer -Force
-        # This will forcefully restart the machine after enabling WSL feature
+        # Forcefully restart the machine after enabling WSL feature
 
   - name: ~/powershell
     displayName: "Install WSL"
@@ -77,7 +77,7 @@ tasks:
     parameters:
       script: |
         Restart-Computer -Force
-        # This will forcefully restart the machine to ensure all configurations are applied
+        # Forcefully restart the machine to ensure all configurations are applied
 
 # ------------------------------------------------------------
 # User tasks (first login)
