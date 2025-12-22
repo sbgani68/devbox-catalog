@@ -12,32 +12,27 @@ tasks:
     displayName: "Install Git"
     parameters:
       package: Git.Git
-      options: "--silent --accept-package-agreements"  # Accept agreement
 
   - name: ~/winget
     displayName: "Install VS Code"
     parameters:
       package: Microsoft.VisualStudioCode
-      options: "--silent --accept-package-agreements"  # Accept agreement
 
   - name: ~/winget
     displayName: "Install Docker Desktop"
     parameters:
       package: Docker.DockerDesktop
-      options: "--silent --accept-package-agreements"  # Accept agreement
 
   - name: ~/winget
     displayName: "Install Slack"
     parameters:
       package: SlackTechnologies.Slack
-      options: "--silent --accept-package-agreements"  # Accept agreement
 
-  # ---- Replace Windows Terminal with Chrome Machine-Wide Installer ----
+  # ---- Install Chrome Machine-Wide Installer ----
   - name: ~/winget
     displayName: "Install Chrome Machine-Wide Installer"
     parameters:
       package: Google.Chrome
-      options: "--silent --accept-package-agreements"  # Accept agreement
 
   # ---- Team PowerShell scripts ----
   - name: ~/powershell
