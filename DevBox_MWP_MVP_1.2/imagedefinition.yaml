@@ -32,7 +32,7 @@ tasks:
   - name: ~/winget
     displayName: "Install Chrome Machine-Wide Installer"
     parameters:
-      package: Google.Chrome
+      package: Google.Chrome.EXE
 
   # ---- Team PowerShell scripts ----
   - name: ~/powershell
@@ -43,9 +43,8 @@ tasks:
   - name: ~/powershell
     displayName: "Reboot Dev Box (Force)"
     parameters:
-      script: |
-        Restart-Computer -Force
-        # Forcefully restart the machine after enabling WSL feature
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Devbox_Reboot.ps1
+        
 
   - name: ~/powershell
     displayName: "Install WSL"
@@ -70,9 +69,7 @@ tasks:
   - name: ~/powershell
     displayName: "Reboot Dev Box (Force)"
     parameters:
-      script: |
-        Restart-Computer -Force
-        # Forcefully restart the machine to ensure all configurations are applied
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Devbox_Reboot.ps1
 
 # ------------------------------------------------------------
 # User tasks (first login)
