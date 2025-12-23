@@ -54,8 +54,8 @@ if (-not (Test-Path $KernelMSI)) {
 # -------------------------------
 # STEP 3: Install WSL 2 kernel silently
 # -------------------------------
-Write-Log "Installing WSL 2 kernel silently..."
-Start-Process msiexec.exe -ArgumentList "/i `"$KernelMSI`" /qn /norestart" -Wait
+#Write-Log "Installing WSL 2 kernel silently..."
+#Start-Process msiexec.exe -ArgumentList "/i `"$KernelMSI`" /qn /norestart" -Wait
 
 # -------------------------------
 # STEP 4: Check for reboot
@@ -71,6 +71,7 @@ if (Test-RebootRequired -or -not (Get-Command wsl -ErrorAction SilentlyContinue)
 # -------------------------------
 try {
     Write-Log "Setting WSL 2 as default..."
+    wsl --update
     wsl --set-default-version 2
 } catch {
     Write-Log "WSL kernel update required. Running 'wsl --update'..."
