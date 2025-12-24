@@ -1,0 +1,43 @@
+$schema: "1.0"
+name: "Win11-24H2-Ent-M365-WSL2-Ubuntu"
+image: "microsoftwindowsdesktop_windows-ent-cpc_win11-24h2-ent-cpc-m365"
+
+tasks:
+
+  # ---- Install dev tools via winget ----
+  - name: ~/winget
+    displayName: "Install Git"
+    parameters:
+      package: Git.Git
+
+  - name: ~/winget
+    displayName: "Install VS Code"
+    parameters:
+      package: Microsoft.VisualStudioCode
+
+  # ---- Install Python 3.11 (Machine-wide) ----
+  - name: ~/winget
+    displayName: "Install Python 3.11"
+    parameters:
+      package: Python.Python.3.11
+
+  - name: ~/winget
+    displayName: "Install Docker Desktop"
+    parameters:
+      package: Docker.DockerDesktop
+
+  - name: ~/winget
+    displayName: "Install Slack"
+    parameters:
+      package: SlackTechnologies.Slack
+
+  # ---- Install Chrome Machine-Wide Installer ----
+  - name: ~/winget
+    displayName: "Install Chrome Machine-Wide Installer"
+    parameters:
+      package: Google.Chrome.EXE
+
+  # ----------------------------------------------------------
+  # PowerShell tasks (externalized, runAs: system)
+  # ----------------------------------------------------------
+  - file: tasks.yaml
