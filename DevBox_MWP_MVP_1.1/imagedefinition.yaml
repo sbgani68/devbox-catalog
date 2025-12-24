@@ -6,39 +6,39 @@ tasks:
 
   # ---- Install dev tools via winget ----
   - name: InstallGit
-    type: winget
+    type: ~/winget
     displayName: "Install Git"
     parameters:
       package: Git.Git
 
   - name: InstallVSCode
-    type: winget
+    type: ~/winget
     displayName: "Install VS Code"
     parameters:
       package: Microsoft.VisualStudioCode
 
   # ---- Install Python 3.11 (Machine-wide) ----
   - name: InstallPython311
-    type: winget
+    type: ~/winget
     displayName: "Install Python 3.11"
     parameters:
       package: Python.Python.3.11
 
   - name: InstallDocker
-    type: winget
+    type: ~/winget
     displayName: "Install Docker Desktop"
     parameters:
       package: Docker.DockerDesktop
 
   - name: InstallSlack
-    type: winget
+    type: ~/winget
     displayName: "Install Slack"
     parameters:
       package: SlackTechnologies.Slack
 
   # ---- Install Chrome Machine-Wide Installer ----
   - name: InstallChrome
-    type: winget
+    type: ~/winget
     displayName: "Install Chrome Machine-Wide Installer"
     parameters:
       package: Google.Chrome
@@ -47,7 +47,7 @@ tasks:
   # PowerShell tasks (externalized, runAs: system)
   # ----------------------------------------------------------
   - name: RunTeamTasks
-    type: powershell
+    type: ~/powershell
     displayName: "Run external PowerShell tasks"
     file: tasks.yaml
     runAs: system
