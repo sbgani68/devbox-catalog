@@ -58,7 +58,8 @@ tasks:
 # ------------------------------------------------------------
 # User tasks (first login)
 # ------------------------------------------------------------
-usertasks:
+userTasks:
+
   - name: ~/powershell
     displayName: "Install WSL"
     parameters:
