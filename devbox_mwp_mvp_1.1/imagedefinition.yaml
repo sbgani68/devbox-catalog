@@ -2,59 +2,69 @@ $schema: "1.0"
 name: "Win11-24H2-Ent-M365-WSL2-Ubuntu"
 image: "microsoftwindowsdesktop_windows-ent-cpc_win11-24h2-ent-cpc-m365"
 
+# ------------------------------------------------------------
+# Team tasks: winget + PowerShell scripts
+# ------------------------------------------------------------
 tasks:
-  - name: "~/winget"
+
+  # ---- Install dev tools via winget ----
+  - name: ~/winget
     displayName: "Install Git"
     parameters:
       package: Git.Git
 
-  - name: "~/winget"
+  - name: ~/winget
     displayName: "Install VS Code"
     parameters:
       package: Microsoft.VisualStudioCode
 
-  - name: "~/winget"
+  - name: ~/winget
     displayName: "Install Docker Desktop"
     parameters:
       package: Docker.DockerDesktop
 
-  - name: "~/winget"
+  - name: ~/winget
     displayName: "Install Slack"
     parameters:
       package: SlackTechnologies.Slack
 
-  - name: "~/winget"
+  # ---- Install Chrome Machine-Wide Installer ----
+  - name: ~/winget
     displayName: "Install Chrome Machine-Wide Installer"
     parameters:
       package: Google.Chrome.EXE
 
-  - name: "~/powershell"
+  # ---- Team PowerShell scripts ----
+  - name: ~/powershell
     displayName: "Enable WSL Feature"
     parameters:
-      script: "C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\EnableWSL_Feature.ps1"
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\EnableWSL_Feature.ps1
 
-  - name: "~/powershell"
+  - name: ~/powershell
     displayName: "Remove Microsoft Store"
     parameters:
-      script: "C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Remove_MSStore.ps1"
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Remove_MSStore.ps1
 
-  - name: "~/powershell"
+  - name: ~/powershell
     displayName: "Set UAC Policy"
     parameters:
-      script: "C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\UAC_Policy_Default.ps1"
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\UAC_Policy_Default.ps1
 
-  - name: "~/powershell"
+  - name: ~/powershell
     displayName: "Reboot Dev Box (Force)"
     parameters:
-      script: "C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Devbox_Reboot.ps1"
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Devbox_Reboot.ps1
 
+# ------------------------------------------------------------
+# User tasks (first login)
+# ------------------------------------------------------------
 usertasks:
-  - name: "~/powershell"
+  - name: ~/powershell
     displayName: "Install WSL"
     parameters:
-      script: "C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Install_WSL.ps1"
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Install_WSL.ps1
 
-  - name: "~/powershell"
+  - name: ~/powershell
     displayName: "Install Ubuntu 24.04"
     parameters:
-      script: "C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Install_Ubuntu_2404.ps1"
+      script: C:\ProgramData\Microsoft\DevBoxAgent\ImageDefinitions\devbox_mwp_mvp_1.1\win11-24h2-ent-m365-wsl2-ubuntu\scripts\Install_Ubuntu_2404.ps1
