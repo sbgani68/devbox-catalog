@@ -1,4 +1,4 @@
-﻿# ==========================================================
+# ==========================================================
 # Script Name : Install_WSL_Ubuntu_FirstRun.ps1
 # Purpose     : Prepare WSL 2 and Ubuntu 24.04 for first user
 # Context     : User context
@@ -33,6 +33,16 @@ Write-Log "Starting WSL & Ubuntu setup."
 # -------------------------------
 # Update WSL kernel/components
 # -------------------------------
+
+try {
+    Write-Log "Installing WSL platform (no distribution, web-download)..."
+    wsl.exe --install --no-distribution --web-download | Out-Null
+    Write-Log "WSL platform install command completed."
+} catch {
+    Write-Log "WSL platform install path skipped or already installed. Details: $($_.Exception.Message)"
+}
+
+
 try {
     Write-Log "Updating WSL kernel/components..."
     wsl.exe --update | Out-Null
